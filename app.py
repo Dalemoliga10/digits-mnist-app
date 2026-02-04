@@ -25,7 +25,6 @@ def reshape_img(image):
     img = np.array(image.convert("L"))
     img = cv2.resize(img, (28, 28))
     img = img / 255.0
-    img = 1.0 - img              # invertir colores
     img_flat = img.reshape(1, 784)
     return img, img_flat
 
