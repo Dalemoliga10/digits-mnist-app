@@ -4,10 +4,10 @@ import numpy as np
 import tensorflow as tf
 from PIL import Image
 
-st.set_page_config(page_title="Fashion MNIST Predictor")
+st.set_page_config(page_title="Ejercicio Mnist numeros")
 
-st.title("Fashion MNIST Predictor")
-st.write("Sube una imagen y el modelo hará la predicción")
+st.title("Ejercicio Mnist numeros")
+st.write("Prueba de funcionamiento")
 
 # Cargar el modelo (una sola vez)
 @st.cache_resource
@@ -18,9 +18,9 @@ model = load_model()
 
 def reshape_img(image):
     img = np.array(image.convert("L"))     # escala de grises
-    img = cv2.resize(img, (28, 28))        # tamaño MNIST
+    img = cv2.resize(img, (28, 28))
     img = img / 255.0
-    img = np.expand_dims(img, 0)           # (1, 28, 28)
+    img = img.reshape(1, 784)    
     return img
 
 uploaded_file = st.file_uploader(
