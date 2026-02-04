@@ -58,9 +58,3 @@ if uploaded_file is not None:
     for i, p in enumerate(probs):
         st.write(f"Clase {i}: {p:.6f}")
 
-    # Rechazo simple si la confianza es baja
-    if probs[predicted_class] < 0.7:
-        st.warning("⚠️ Baja confianza: la imagen puede no ser válida para MNIST")
-
-st.markdown("---")
-st.caption("Modelo entrenado sobre MNIST/Fashion MNIST · Streamlit + TensorFlow")
