@@ -22,13 +22,13 @@ model = load_model()
 # Preprocesado de imagen
 # =========================
 def reshape_img(image):
-    img = np.array(image.convert("L"))      # Escala de grises
-    img = cv2.resize(img, (28, 28))          # Tamaño MNIST
-    img = img / 255.0                        # Normalizar
-    img = 1.0 - img                          # Invertir colores (CLAVE)
-    img = (img > 0.5).astype(np.float32)     # Umbralizar
-    img_flat = img.reshape(1, 784)           # Aplanar para Dense
+    img = np.array(image.convert("L"))
+    img = cv2.resize(img, (28, 28))
+    img = img / 255.0
+    img = 1.0 - img              # invertir colores
+    img_flat = img.reshape(1, 784)
     return img, img_flat
+
 
 # =========================
 # Subida de imagen
