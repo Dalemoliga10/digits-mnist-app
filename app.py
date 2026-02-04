@@ -14,7 +14,7 @@ st.write("Sube una imagen tipo MNIST (fondo negro, número blanco) y el modelo h
 # =========================
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("model/fashion_mnist.keras")
+    return tf.keras.models.load_model("dataset_Mnist_Ejercicio.keras")
 
 model = load_model()
 
