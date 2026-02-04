@@ -35,6 +35,7 @@ if uploaded_file is not None:
 
     img = reshape_img(image)
     prediction = model.predict(img)
+    st.write(prediction)
     predicted_class = prediction.argmax()
 
     st.success(f"Predicción: {predicted_class}")
