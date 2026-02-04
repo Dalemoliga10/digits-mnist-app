@@ -17,11 +17,13 @@ def load_model():
 model = load_model()
 
 def reshape_img(image):
-    img = np.array(image.convert("L"))     # escala de grises
+    img = np.array(image.convert("L"))
     img = cv2.resize(img, (28, 28))
     img = img / 255.0
-    img = img.reshape(1, 784)    
+    img = 1.0 - img              
+    img = img.reshape(1, 784)
     return img
+
 
 uploaded_file = st.file_uploader(
     "Sube una imagen (PNG/JPG)", type=["png", "jpg", "jpeg"]
