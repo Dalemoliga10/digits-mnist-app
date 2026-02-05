@@ -28,7 +28,7 @@ uploaded_file = st.file_uploader(
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
 
-    st.subheader("Imagen original")
+    st.subheader("Imagen subida: ")
     st.image(image, width=150)
 
     img_28, img_flat = reshape_img(image)
