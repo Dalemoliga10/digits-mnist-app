@@ -4,9 +4,7 @@ import numpy as np
 import tensorflow as tf
 from PIL import Image
 
-st.set_page_config(page_title="MNIST / Fashion MNIST Predictor", layout="centered")
-
-st.title("MNIST / Fashion MNIST Predictor")
+st.set_page_config(page_title="Prueba streamlit mnist numeros", layout="centered")
 
 @st.cache_resource
 def load_model():
