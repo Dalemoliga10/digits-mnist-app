@@ -7,20 +7,13 @@ from PIL import Image
 st.set_page_config(page_title="MNIST / Fashion MNIST Predictor", layout="centered")
 
 st.title("MNIST / Fashion MNIST Predictor")
-st.write("Sube una imagen tipo MNIST (fondo negro, número blanco) y el modelo hará la predicción")
 
-# =========================
-# Cargar modelo
-# =========================
 @st.cache_resource
 def load_model():
     return tf.keras.models.load_model("dataset_Mnist_Ejercicio.keras")
 
 model = load_model()
 
-# =========================
-# Preprocesado de imagen
-# =========================
 def reshape_img(image):
     img = np.array(image.convert("L"))
     img = cv2.resize(img, (28, 28))
@@ -28,10 +21,6 @@ def reshape_img(image):
     img_flat = img.reshape(1, 784)
     return img, img_flat
 
-
-# =========================
-# Subida de imagen
-# =========================
 uploaded_file = st.file_uploader(
     "Sube una imagen (PNG/JPG)", type=["png", "jpg", "jpeg"]
 )
@@ -43,9 +32,6 @@ if uploaded_file is not None:
     st.image(image, width=150)
 
     img_28, img_flat = reshape_img(image)
-
-    st.subheader("Imagen que ve el modelo (28x28)")
-    st.image(img_28, clamp=True)
 
     prediction = model.predict(img_flat)
     probs = prediction[0]
